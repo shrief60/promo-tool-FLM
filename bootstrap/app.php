@@ -14,7 +14,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias(['dummy-auth' => 'App\Http\Middleware\AuthenticateUserByToken']);
+        $middleware->alias([
+            'dummy-admin-auth' => 'App\Http\Middleware\DummyAdminAuthenticationMiddleware',
+            'dummy-user-auth' =>  'App\Http\Middleware\DummyUserAuthenticationMiddleware'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

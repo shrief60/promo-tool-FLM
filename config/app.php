@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'sibling_key' => env('SIBLING_KEY', 'sibling-key'),
+
 ];
