@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('promotion_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('avilable_usage_times');
+            $table->unsignedBigInteger('available_usage_times');
             $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unique(['promotion_id', 'user_id']);
