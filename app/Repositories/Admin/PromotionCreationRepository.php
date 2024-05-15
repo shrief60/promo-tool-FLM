@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Admin;
 
-use App\Http\DataTransferObjects\PromoCreationRequestDto;
+use App\Http\DataTransferObjects\Admin\PromoCreationRequestDto;
 use App\Models\Promotion;
 use App\Models\PromotionUser;
 use Illuminate\Support\Facades\DB;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Admin;
 
-use App\Http\DataTransferObjects\PromoCreationRequestDto;
+use App\Http\DataTransferObjects\Admin\PromoCreationRequestDto;
 use Exception;
-use App\Repositories\PromotionCreationRepository;
+use App\Repositories\Admin\PromotionCreationRepository;
 
 
 use App\Traits\ExceptionFailureTrait;

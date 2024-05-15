@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Exceptions\APIException;
-use App\Http\Requests\PromotionCreationRequest;
-use App\Services\PromotionCreationService;
+use App\Http\Requests\Admin\PromotionCreationRequest;
+use App\Services\Admin\PromotionCreationService;
+use App\Http\Controllers\Controller;
 
 class PromotionController extends Controller
 {

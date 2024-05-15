@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\Admin\PromotionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

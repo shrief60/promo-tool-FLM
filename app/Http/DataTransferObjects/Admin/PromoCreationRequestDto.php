@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\DataTransferObjects;
+namespace App\Http\DataTransferObjects\Admin;
 
 use App\Models\User;
 use Spatie\DataTransferObject\DataTransferObject;
