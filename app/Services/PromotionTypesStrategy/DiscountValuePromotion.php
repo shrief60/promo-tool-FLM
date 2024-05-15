@@ -9,7 +9,7 @@ class DiscountValuePromotion implements PromotionType
 {
     public function calculateDiscount(OrderDto $promotionDto, Promotion $promotion) : array
     {
-        $discount_amount = $promotion->discount_value;
+        $discount_amount = $promotion->reference_value;
         return [
             'price' => $promotionDto->price,
             'discount_amount' => $discount_amount,
