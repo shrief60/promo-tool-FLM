@@ -13,8 +13,6 @@ class PromotionCreationService
 {
     use ExceptionFailureTrait;
 
-    public $promoCreationRepository;
-
     public function __construct(public PromotionCreationRepository $promoRepository){}
 
     

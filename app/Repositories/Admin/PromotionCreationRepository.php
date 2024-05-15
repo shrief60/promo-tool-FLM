@@ -45,6 +45,8 @@ class PromotionCreationRepository
                 'promotion_id' => $promotion_id,
                 'user_id' => $user,
                 'available_usage_times' => $maxUsageTimesPerUser,
+                'created_at' => now(),
+                'updated_at' => now()
             ];
             array_push($promoUsers, $promoUser);
         }

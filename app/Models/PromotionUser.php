@@ -13,6 +13,8 @@ class PromotionUser extends Model
         'promotion_id',
         'user_id',
         'available_usage_times',
+        'created_at',
+        'updated_at'
     ];
 
     public function promotion()

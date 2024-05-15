@@ -19,6 +19,7 @@ class DummyUserAuthenticationMiddleware
         {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
+        $request->merge(['user_id' =>2]);
         return $next($request);
     }
 }

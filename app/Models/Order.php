@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    public static $STATUS_PENDING = 'pending';
+    public static $STATUS_COMPLETED = 'completed';
+    public static $STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
         'user_id',
@@ -16,6 +19,8 @@ class Order extends Model
         'discount_amount',
         'final_price',
         'status',
+        'created_at',
+        'updated_at'
     ];
 
     public function user()
