@@ -8,6 +8,7 @@ use App\Models\Promotion;
 use App\Repositories\User\OrderRepository;
 use Exception;
 use App\Repositories\User\PromotionValidityRepository;
+use App\Services\PromotionTypesStrategy\PromoTypeContext;
 use App\Traits\ExceptionFailureTrait;
 use App\Traits\PromotionValidtyFailureTrait;
 
@@ -72,17 +73,9 @@ class PromotionValidationService
         } else {
             $this->promoRepository->createPromotionUser($promotion, $promotionDto->user_id);
         }
-        if($promotion->type == Promotion::$PROMOTION_TYPE_PERCENTAGE)
-            $discount_amount = $promotionDto->price * ($promotion->reference_value / 100);
-        else
-            $discount_amount = $promotion->reference_value;
-
-        return [
-            'price' => $promotionDto->price,
-            'discount_amount' => $discount_amount,
-            'final_price' => $promotionDto->price - $discount_amount,
-            'promotion_id' => $promotion->id,
-        ];
+        
+        $context = new PromoTypeContext();
+        return $context->getPromotion($promotion->type)->calculateDiscount($promotionDto, $promotion);
         
     }
 }
