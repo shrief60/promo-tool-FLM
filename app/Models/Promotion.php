@@ -9,6 +9,11 @@ class Promotion extends Model
 {
     use HasFactory;
 
+    public static $USER_SEGMENT_ALL = 'all';
+    public static $USER_SEGMENT_SPECIFIC = 'specific';
+    public static $PROMOTION_TYPE_VALUE = 'value';
+    public static $PROMOTION_TYPE_PERCENTAGE = 'percentage';
+
     protected $fillable = [
         'promo_code',
         'type',

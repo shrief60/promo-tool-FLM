@@ -27,8 +27,11 @@ class PromotionCreationRepository
                 'expiry_date' => $promoDto->expiry_date,
                 'max_usage_times' => $promoDto->max_usage_times,
             ]);
-            $promotionUsers = $this->attachUsers($promoDto->users, $promoDto->max_usage_times_per_user, $this->promotion->id);
-            $this->promotionUsersModel->insert($promotionUsers);
+            if($promoDto->user_segment == Promotion::$USER_SEGMENT_SPECIFIC && !empty($promoDto->users))
+            {
+                $promotionUsers = $this->attachUsers($promoDto->users, $promoDto->max_usage_times_per_user, $this->promotion->id);
+                $this->promotionUsersModel->insert($promotionUsers);
+            }
         });
         Log::info(__CLASS__." ".__FUNCTION__." saving promotion transaction response", ['promotion' =>$this->promotionModel, 'result' => $result ] );
         return $this->promotion;
