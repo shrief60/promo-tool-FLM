@@ -3,18 +3,17 @@
 namespace App\Services\Admin;
 
 use App\Http\DataTransferObjects\Admin\PromoCreationRequestDto;
+use App\Repositories\Admin\PromoCreationRepositoryInterface;
 use Exception;
-use App\Repositories\Admin\PromotionCreationRepository;
 
 
 use App\Traits\ExceptionFailureTrait;
 
-class PromotionCreationService
+class PromotionCreationService implements PromoCreationInterface
 {
     use ExceptionFailureTrait;
 
-    public function __construct(public PromotionCreationRepository $promoRepository){}
-
+    public function __construct(public PromoCreationRepositoryInterface $promoRepository){}
     
     public function createPromotion(PromoCreationRequestDto $promotionDto) : array
     {

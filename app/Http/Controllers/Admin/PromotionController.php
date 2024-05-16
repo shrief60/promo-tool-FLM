@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exceptions\APIException;
 use App\Http\Requests\Admin\PromotionCreationRequest;
-use App\Services\Admin\PromotionCreationService;
 use App\Http\Controllers\Controller;
+use App\Services\Admin\PromoCreationInterface;
 
 class PromotionController extends Controller
 {
 
-    public function  __construct(public PromotionCreationService $promotionService){}
+    public function  __construct(public PromoCreationInterface $promotionService){}
 
     public function store(PromotionCreationRequest $request) : \Illuminate\Http\JsonResponse
     {

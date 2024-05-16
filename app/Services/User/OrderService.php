@@ -3,17 +3,17 @@
 namespace App\Services\User;
 
 use App\Http\DataTransferObjects\User\OrderDto;
-use App\Repositories\User\OrderRepository;
+use App\Repositories\User\OrderRepositoryInterface;
 use Exception;
 use App\Traits\ExceptionFailureTrait;
 
-class OrderService
+class OrderService implements OrderServiceInterface
 {
     use ExceptionFailureTrait;
 
-    public function __construct(public OrderRepository $orderRepo){}
+    public function __construct(public OrderRepositoryInterface $orderRepo){}
 
-    public function createOrder(OrderDto $orderDto, array $orderData)
+    public function execute(OrderDto $orderDto, array $orderData)
     {
         try{
             return $this->orderRepo->createOrder($orderDto, $orderData); 

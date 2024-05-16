@@ -2,24 +2,23 @@
 
 namespace App\Services\User;
 
-use App\Exceptions\PromotionVaidityException;
 use App\Http\DataTransferObjects\User\OrderDto;
 use App\Models\Promotion;
-use App\Repositories\User\OrderRepository;
+use App\Repositories\User\OrderRepositoryInterface;
 use Exception;
-use App\Repositories\User\PromotionValidityRepository;
+use App\Repositories\User\PromoValidityRepoInterface;
 use App\Services\PromotionTypesStrategy\PromoTypeContext;
 use App\Traits\ExceptionFailureTrait;
 use App\Traits\PromotionValidtyFailureTrait;
 
-class PromotionValidationService
+class PromotionValidationService implements PromotionValidationInterface
 {
     use ExceptionFailureTrait, PromotionValidtyFailureTrait;
 
-    public function __construct(public PromotionValidityRepository $promoRepository, public OrderRepository $orderRepo){}
+    public function __construct(public PromoValidityRepoInterface $promoRepository, public OrderRepositoryInterface $orderRepo){}
 
     
-    public function checkValidity(OrderDto $promotionDto) : array
+    public function execute(OrderDto $promotionDto) : array
     {
         try {
             $promotion = $this->promoRepository->checkActivePromoCode($promotionDto);

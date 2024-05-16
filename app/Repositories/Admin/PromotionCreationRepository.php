@@ -8,7 +8,7 @@ use App\Models\PromotionUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-class PromotionCreationRepository
+class PromotionCreationRepository implements PromoCreationRepositoryInterface
 {
     private $promotion;
     public function  __construct(public Promotion $promotionModel, public PromotionUser $promotionUsersModel){}
@@ -45,8 +45,8 @@ class PromotionCreationRepository
                 'promotion_id' => $promotion_id,
                 'user_id' => $user,
                 'available_usage_times' => $maxUsageTimesPerUser,
-                'created_at' => now(),
-                'updated_at' => now()
+                'created_at' => now()->format('Y-m-d H:i:s'),
+                'updated_at' => now()->format('Y-m-d H:i:s')
             ];
             array_push($promoUsers, $promoUser);
         }

@@ -6,7 +6,7 @@ use App\Http\DataTransferObjects\User\OrderDto;
 use App\Models\Order;
 
 
-class OrderRepository
+class OrderRepository implements OrderRepositoryInterface
 {
     public function  __construct(public Order $orderModel){}
 

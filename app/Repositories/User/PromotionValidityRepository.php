@@ -7,7 +7,7 @@ use App\Models\Order;
 use App\Models\Promotion;
 use App\Models\PromotionUser;
 
-class PromotionValidityRepository
+class PromotionValidityRepository implements PromoValidityRepoInterface
 {
     public function  __construct(public Promotion $promotionModel, public PromotionUser $promotionUsersModel, public Order $orderModel){}
 
