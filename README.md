@@ -2,7 +2,8 @@
 ## Promo tool Food Lab Maker
 
 THis task to Create a promo code app where admins can create promo codes through an api. the
-app consists of 2 endpoints
+app consists of 2 endpoints : 
+
     - promotion creation  API
     - Promotion Check validty API 
 
