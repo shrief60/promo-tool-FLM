@@ -18,6 +18,7 @@ chmod 777 /var/www/html/storage/framework/sessions -R
 chmod 777 /var/www/html/storage/framework/views -R
 chmod 777 /var/www/html/storage/framework/logs -R
 chmod 777 /var/www/html/bootstrap/cache -R
+chmod 777 /var/www/html/data -R
 
 chown www-data:www-data /var/www/html/storage/logs/* -R
 chown www-data:www-data /var/www/html/storage/logs -R
@@ -26,3 +27,4 @@ php artisan migrate
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear
+php artisan DB:seed

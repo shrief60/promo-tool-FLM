@@ -5,6 +5,12 @@ version: "3.4"
 x-: &app_base
   image: promo-php
   restart: always
+  networks:
+      - flm
+  links:
+      - "database"
+  depends_on:
+      - "database"
   build:
     context: ./
     dockerfile: ./docker/php/Dockerfile
@@ -17,16 +23,20 @@ services:
     ports:
       - 90:80
     restart: always
+    networks:
+      - flm
     depends_on:
       - php
-      # - database
   php:
     <<: *app_base
   database:
+    platform: linux/x86_64
     image: mysql:5.7
     restart: always
     env_file:
         - ".env"
+    networks:
+        - flm
     ports:
         - "8900:3306"
     volumes:
@@ -39,3 +49,6 @@ services:
 # Volumes
 volumes:
   mysqldata:
+
+networks:
+  flm:
