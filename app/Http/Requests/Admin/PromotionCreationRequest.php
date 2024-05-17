@@ -34,7 +34,7 @@ class PromotionCreationRequest extends FormRequest
             'expiry_date' => 'required|date|date_format:Y-m-d H:i:s|after:now',
             'max_usage_times' => 'required|numeric',
             'max_usage_times_per_user' => 'required|numeric',
-            'users' => 'required|array',
+            'users' => 'required_if:user_segment,specific|array',
         ];
     }
 

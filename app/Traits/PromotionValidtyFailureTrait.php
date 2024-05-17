@@ -5,7 +5,7 @@ namespace App\Traits;
 use Exception;
 trait PromotionValidtyFailureTrait
 {
-    private function handleNotValidPromo(string $errorCode): array
+    public function handleNotValidPromo(string $errorCode): array
     {
         return [
             'success' => false,

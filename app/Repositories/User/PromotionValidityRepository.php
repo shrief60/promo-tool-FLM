@@ -32,7 +32,7 @@ class PromotionValidityRepository implements PromoValidityRepoInterface
         return $this->promotionUsersModel->create([
             'promotion_id' => $promotion->id,
             'user_id' => $userId,
-            'available_usage_times' => $promotion->max_usage_times -1
+            'available_usage_times' => $promotion->max_usage_times_per_user -1
         ]);
     }
 }

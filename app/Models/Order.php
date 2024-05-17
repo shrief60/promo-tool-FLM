@@ -13,6 +13,7 @@ class Order extends Model
     public static $STATUS_CANCELLED = 'cancelled';
 
     protected $fillable = [
+        'id',
         'user_id',
         'promotion_id',
         'total_price',

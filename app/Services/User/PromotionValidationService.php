@@ -44,7 +44,7 @@ class PromotionValidationService implements PromotionValidationInterface
     public function IsPromoValidForUser(Promotion $promotion, int $userId): bool
     {
         $promotionUsage = $this->promoRepository->getPromotionUser($promotion, $userId);
-        if($this->isPublicPromo($promotion) && $promotionUsage?->available_usage_times <= 0)
+        if($this->isPublicPromo($promotion) && $promotionUsage && $promotionUsage?->available_usage_times <= 0)
             return false;
         if($this->isSpecificPromo($promotion) && $promotionUsage?->available_usage_times <= 0)
             return false;

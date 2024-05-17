@@ -26,6 +26,7 @@ class PromotionCreationRepository implements PromoCreationRepositoryInterface
                 'user_segment' => $promoDto->user_segment,
                 'expiry_date' => $promoDto->expiry_date,
                 'max_usage_times' => $promoDto->max_usage_times,
+                'max_usage_times_per_user' => $promoDto->max_usage_times_per_user,
             ]);
             if($promoDto->user_segment == Promotion::$USER_SEGMENT_SPECIFIC && !empty($promoDto->users))
             {

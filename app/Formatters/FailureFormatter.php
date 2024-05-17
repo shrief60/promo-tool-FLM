@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Traits;
+namespace App\Formatters;
 
 use Exception;
-trait ExceptionFailureTrait
+
+class FailureFormatter
 {
-    public function handleFailure(string $errorCode, string $errorMessage, Exception $exception): array
+    public function handle(string $errorCode, string $errorMessage, Exception $exception): array
     {
         return [
             'success' => false,

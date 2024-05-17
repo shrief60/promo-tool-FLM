@@ -15,6 +15,7 @@ class Promotion extends Model
     public static $PROMOTION_TYPE_PERCENTAGE = 'percentage';
 
     protected $fillable = [
+        'id',
         'promo_code',
         'type',
         'title',

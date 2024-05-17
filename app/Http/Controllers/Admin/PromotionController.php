@@ -16,8 +16,8 @@ class PromotionController extends Controller
     {
         $promotionDto = $request->toDto();
         $response = $this->promotionService->createPromotion($promotionDto);
-        if(!$response['success'])
-            throw new APIException($response['error_message'], $response['error_code'], 403, $response['additional_data']);
-        return response()->json(['message' => 'Promotion created successfully', 'promotion' => $response['result']]);
+        //if(!$response['success'])
+          //  throw new APIException($response['error_message'], $response['error_code'], 403, $response['additional_data']);
+        return response()->json(['message' => 'Promotion created successfully', 'promotion' => $response]);
     }
 }
